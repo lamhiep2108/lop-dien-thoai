@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head><div style="width:1000px ">
+<div id="iphone" style=" width: 400px; height: 600px; border: solid 1px;float: left; ;">
+<h3 align="center">IPHONE 12 PRO Max</h3><br>
+
+<button type="button" onclick="turnOn()">Turn On</button>
+<button type="button" onclick="turnOff()">Turn Off</button><br><br>
+    <textarea id="input" style="width: 200px;height: 50px" placeholder="write a message"></textarea><br>
+    <button type="button"  onclick="send()">Send</button><br>
+<textarea id="output" placeholder="hộp thư đến" disabled></textarea>
+    <p id="ok"></p>
+</div>
+<div id="samsung" style=" width: 400px; height: 600px; border: solid 1px; float:right">
+<h3 align="center">SAM SUNG</h3><br>
+<button type="button" onclick="turnOn2()">Turn On</button>
+<button type="button" onclick="turnOff2()">Turn Off</button><br><br>
+    <textarea id="input2" style="width: 200px;height: 50px" placeholder="write a message"></textarea><br>
+    <button type="button" onclick="send2()">Send</button><br>
+    <textarea id="output2"  placeholder="hộp thư đến"  disabled></textarea>
+    <p id="ok2" ></p>
+</div>
+</div>
+<script>
+class battery{
+    constructor(id,name,mana) {
+        this.id=id;
+        this.name=name;
+        this.mana=mana;
+        if (mana>100){
+            this.mana=100;
+        }else if (mana<0){
+            this.mana=0
+        }else {
+            this.mana=mana;
+        }
+    }
+}
+class mobile{
+    constructor(pin, id, name, message, isOn, mobile) {
+        this.pin=pin;
+        this.id=id;
+        this.name=name;
+        this.message=message;
+        this.isOn=isOn;
+        this.mobile=mobile;
+    }
+    turnOn(){
+        return true;
+    }
+    turnOff(){
+        return false;
+
+    }
+    turnOn2(){
+        return true;
+    }
+    turnOff2(){
+        return false;
+
+    }
+
+}
+var piniphone = new battery(1,"pin Iphone",99)
+var pinsamsung = new battery(2,"pin Samsung",99)
+var iphone = new mobile(piniphone,1,iphone,message,isOn,mobile1);
+var samsung=new mobile((pinsamsung,2,samsung,message2,isOn2,mobile2));
+function turnOn(){
+    document.getElementById('ok').innerHTML = "điện thoại đang bật"
+
+}
+function turnOff() {
+    document.getElementById('ok').innerHTML = "điện thoại đang tắt"
+}
+function turnOn2(){
+    document.getElementById('ok').innerHTML = "điện thoại đang bật"
+
+}
+function turnOff2(){
+    document.getElementById('ok2').innerHTML = "điện thoại đang tắt"
+
+}
+
+function send(){
+    let value =document.getElementById('input').value;
+    document.getElementById('output2').innerHTML=value;
+    document.getElementById('input').value="";
+}
+function send2() {
+    let value = document.getElementById('input2').value;
+    document.getElementById('output').innerHTML = value;
+    document.getElementById('input2').value = "";
+}
+</script>
+</body>
+</html>
